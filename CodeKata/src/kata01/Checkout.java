@@ -9,18 +9,19 @@ public class Checkout {
 
 	public static void main(String[] args) {
 		
-		Item apple = ItemImpl.of("Apple", 40, 1);
+		Item apple = ItemImpl.of("Apple", 40, 3);
 		Item bread = ItemImpl.of("Bread", 125, 1);
 		Item cheese = CounterItemImpl.of("Cheese", 1.99, 100);
-		Item drink = ItemImpl.of("Drink", 70, 1);
+		Item drink = ItemImpl.of("Drink", 70, 3);
 		
-		List<Item> trolley = new ArrayList<>();
+		Trolley trolley = Trolley.of();
 		trolley.add(apple);
 		trolley.add(bread);
 		trolley.add(cheese);
-		trolley.add(drink);
 		
-		double sub = trolley.stream().mapToDouble((x) -> x.getTotal()).sum();
-		System.out.println(sub);
+		System.out.println(trolley.getTotal());
+		
+		trolley.add(drink);
+		System.out.println(trolley.getTotal());
 	}
 }
