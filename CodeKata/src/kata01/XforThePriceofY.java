@@ -7,11 +7,12 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor(staticName="of")
-public class XforYPounds implements Discount {
+public class XforThePriceofY implements Discount {
 
 	private String applyTo;
 	private int x;
 	private int y;
+	
 	
 	@Override
 	public double discount(Trolley trolley) {
@@ -22,15 +23,17 @@ public class XforYPounds implements Discount {
 											 .collect(Collectors.toList())
 											 .get(0)
 											 .getQuantity();
-		
+
 		double price = trolley.getYourStuff().stream()
-							  .filter((x) -> x.getName().equals(applyTo))
-							  .mapToDouble((x) -> x.getTotal())
-							  .sum();
+											 .filter((x) -> x.getName().equals(applyTo))
+											 .mapToDouble((x) -> x.getTotal())
+											 .sum();
+		
 		return function(quantity, price);
 	}
-	
-	private double function (int quantity, double price) {
-		return (quantity / x) * y;
+
+	private double function(int quantity, double price) {
+		return (quantity / x) * price - y;
 	}
+	
 }

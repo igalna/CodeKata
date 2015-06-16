@@ -14,6 +14,8 @@ public class Checkout {
 		Item cheese = CounterItemImpl.of("Cheese", 1.99, 100);
 		Item drink = ItemImpl.of("Drink", 70, 3);
 		
+		Discount threeForOnePound = XforYPounds.of("Apple", 3, 1);
+		
 		Trolley trolley = Trolley.of();
 		trolley.add(apple);
 		trolley.add(bread);
@@ -23,5 +25,7 @@ public class Checkout {
 		
 		trolley.add(drink);
 		System.out.println(trolley.getTotal());
+		
+		System.out.println(threeForOnePound.discount(trolley));
 	}
 }
