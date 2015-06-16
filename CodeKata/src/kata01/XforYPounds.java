@@ -28,7 +28,7 @@ public class XforYPounds implements Discount {
 							  .mapToDouble((x) -> x.getTotal())
 							  .sum();
 		System.out.println(price);
-		return function(quantity, price);
+		return (trolley.getTotal() -price) + function(quantity, price);
 	}
 	
 	private double function (int quantity, double price) {
