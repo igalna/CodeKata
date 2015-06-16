@@ -27,10 +27,11 @@ public class XforYPounds implements Discount {
 							  .filter((x) -> x.getName().equals(applyTo))
 							  .mapToDouble((x) -> x.getTotal())
 							  .sum();
+		System.out.println(price);
 		return function(quantity, price);
 	}
 	
 	private double function (int quantity, double price) {
-		return (quantity / x) * y;
+		return ((quantity / x) * y) * 100;
 	}
 }

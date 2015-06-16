@@ -9,7 +9,7 @@ public class Checkout {
 
 	public static void main(String[] args) {
 		
-		Item apple = ItemImpl.of("Apple", 40, 3);
+		Item apple = ItemImpl.of("Apple", 40, 7);
 		Item bread = ItemImpl.of("Bread", 125, 1);
 		Item cheese = CounterItemImpl.of("Cheese", 1.99, 100);
 		Item drink = ItemImpl.of("Drink", 70, 3);
@@ -20,10 +20,8 @@ public class Checkout {
 		trolley.add(apple);
 		trolley.add(bread);
 		trolley.add(cheese);
-		
-		System.out.println(trolley.getTotal());
-		
 		trolley.add(drink);
+		
 		System.out.println(trolley.getTotal());
 		
 		System.out.println(threeForOnePound.discount(trolley));
