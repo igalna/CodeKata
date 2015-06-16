@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
+@AllArgsConstructor(staticName="of")
 public class XforYPounds implements Discount {
 
 	private String applyTo;
