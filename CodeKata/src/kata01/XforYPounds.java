@@ -1,5 +1,8 @@
 package kata01;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -13,8 +16,22 @@ public class XforYPounds implements Discount {
 	
 	@Override
 	public double discount(Trolley trolley) {
-		trolley.getYourStuff().stream()
-							  .filter((x) -> x.getName().equals(applyTo));
-		return 0;
+		int quantity = trolley.getYourStuff().stream()
+											 .filter((x) -> x.getName()
+											 .equals(applyTo))
+											 .limit(1)
+											 .collect(Collectors.toList())
+											 .get(0)
+											 .getQuantity();
+		
+		double price = trolley.getYourStuff().stream()
+							  .filter((x) -> x.getName().equals(applyTo))
+							  .mapToDouble((x) -> x.getTotal())
+							  .sum();
+		return function(quantity, price);
+	}
+	
+	private double function (int quantity, double price) {
+		return price - (quantity / x);
 	}
 }
