@@ -18,7 +18,7 @@ public class CounterItemImpl implements CounterItem {
 	}
 
 	@Override
-	public double getWeight() {
+	public int getQuantity() {
 		return weight;
 	}
 
